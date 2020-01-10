@@ -1,0 +1,766 @@
+
+	
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Turnitin, LLC" />
+    <meta name="keywords" content="" /> 
+    <meta name="description" content="" />
+<title>Turnitin</title>
+
+<base href="http://api.turnitin.com">
+<style type="text/css">
+body	{
+	color: #333;
+	background: #C0C7CC;
+	padding: 0;
+	border: 0;
+	font: 13px Verdana, arial, sans-serif;
+	margin: 0;
+	}
+	
+form	{
+	padding: 0;
+	margin: 0;
+	}
+	
+body#display	{
+	}
+	
+body#bodysource	{
+	width: 520px;
+	background: #F0F4FA;
+	}
+	
+p	{
+	padding: 10px 18px;
+	margin: 0;
+	}
+	
+img	{
+	border: 0;
+	padding: 0;
+	}
+
+div	{
+	padding: 0;
+	border: 0;
+	}
+	
+iframe	{
+	border: 0;
+	margin: 0;
+	padding: 0;
+	}
+	
+strong	{
+	font-weight: bold;
+	}
+	
+ul	{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	font-size: 13px;
+	}
+	
+ul li	{
+	padding: 0;
+	margin: 0;
+	line-height: 16px;
+	}
+	
+#index span#exclude	{
+	margin: 0 50px 0 23px;
+	}
+	
+#index a	{
+	font-size: 11px;
+	padding: 0 8px;
+	}
+	
+#index select	{
+	font-size: 12px;
+	border: 1px solid #888;
+	}
+	
+#index input.small	{
+	margin: 0 0 0 5px;
+	width: 30px;
+	color: red;
+	font-weight: bold;
+	font-size: 13px;
+	border: 1px solid #888;
+	vertical-align: baseline;
+	}
+		
+div.links	{
+	width: 85%;
+	margin: 0 auto;
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	padding-top: 8px;
+	background: #E8EEF7;
+	text-align: left;
+	}
+	
+.links div	{
+	padding: 5px 13px 10px 20px;
+	border-bottom: 1px dotted #888;
+	}
+	
+.links div p	{
+	padding: 2px 0 0 40px;
+	}
+	
+div#body	{
+	line-height: 17px;
+	width: 85%;
+	margin: auto;
+	padding: 20px 0;
+	background: #fff;
+	border-bottom: 1px solid #888;
+	border-right: 1px solid #888;
+	border-left: 1px solid #888;
+	text-align: left;
+	}
+	
+#body p	{
+	color: #000;
+	padding-top: 10 0;
+	margin: 0 40px;
+	}
+#actions {
+	display: none;
+	}
+
+a.exclude	{
+	float: right;
+	margin: 0;
+	padding: 0;
+	}
+/*= GENERAL 
+=== === === === === === === === === === === === === === === === === === === === === === === === === === === === === === */	
+
+body  #top_bar {
+display: none !important;
+}
+
+body #index #exclude,
+#download_button,
+#print_button,
+#index .right {
+display: inline-block;
+}
+
+body #index {
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+border: 1px solid #999;
+background: #ececec url(new_dynamic/images/22bd7a01a025b8de122259e42762f0a7cb_ug_toolbar_bg.gif) repeat-x center left;
+}
+
+#toolbar_wrapper {
+padding-left:45px;
+}
+
+body #top {
+width: 85%;
+background-color: #FFF;
+margin-left: auto;
+margin-right: auto;
+border: 1px solid #999;
+border-bottom: none;
+height: 210px;
+}
+body #content {
+padding: 10px 60px;
+}
+body div#prefs {
+display: none;
+}
+
+body #top h2 {
+font-size: 20px;
+font-weight: normal;
+}
+
+body #top h2 strong {
+font-weight: normal;
+}
+body #top h2 em {
+font-style: normal;
+}
+
+
+body #top h3 {
+font-size: 16px;
+font-weight: normal;
+}
+
+body #top h3 strong {
+font-weight: normal;
+}
+body #top h3 em {
+font-style: normal;
+}
+
+        
+        body #top_body li	{/*Paper info li*/
+            padding:0;
+            margin: 0px 0px 2px 0px;
+            font-size: 10px;
+            }
+            
+            #top_body #print_wrapper {
+                float:left;
+                width: 50%;
+            }
+            
+            #top_body .similarity_print_wrapper {
+                width: 45%;
+                min-width: 283px;
+            }
+                
+            #top_body .similarity_box { /*Similiarity Box w/ Similarity by Source */
+                float: right;
+                border: solid 1px #666;
+                margin-top: 60px;
+                width: 350px;
+            }
+                #top_body .similarity_box .overall_similarity {
+                    float: left;
+                    border-right: solid 1px #666;
+                }
+                    #top_body .similarity_box .overall_similarity .color_box {
+                        font-size: 14px;
+                        width: 140px;
+                    }
+                        #top_body .color_box.green {
+                            background-color: green;
+                        }
+                        #top_body .color_box.blue {
+                            background-color: blue;
+                        }
+                        #top_body .color_box.yellow {
+                            background-color: yellow;
+                        }
+                        #top_body .color_box.orange {
+                            background-color: orange;
+                        }
+                        #top_body .color_box.red {
+                            background-color: red;
+                        }
+
+                    #top_body .similarity_box .overall_similarity .similarity_title {
+                        font-size: 13px;
+                        font-weight: normal;
+                        padding: 5px 0px 0px;
+                        text-align: center;
+                    }
+
+                    #top_body .similarity_box .overall_similarity .similarity_percent {
+                        font-size: 25px;
+                        font-family: georgia, times, serif;
+                        padding: 5px 0px 15px;
+                        text-align: center;
+                    }
+
+                    #top_body .similarity_box .overall_similarity a {
+                         display: none;
+                    }
+
+                #top_body .similarity_box .similarity_by_source {
+                     float: right;
+                     font-size: 10px;
+                }
+                    #top_body .similarity_box .similarity_by_source .similarity_title {
+                         padding: 6px 0px 0px 10px;
+                         font-weight: bold;
+                         text-align: left;
+                    }
+                    #top_body .similarity_box .similarity_by_source dl {
+                        padding-left: 10px;
+                        margin: 14px 7px 0px 0px;
+                    }
+                    #top_body .similarity_box .similarity_by_source dt {
+                         float: left;
+                         width: 160px;
+                    }
+                    #top_body .similarity_box .similarity_by_source dd {
+                        float: left;
+                        margin: 0px;
+                    }
+
+	
+		
+#index span#exclude	{
+	margin: 0 50px 0 23px;
+	}
+	
+#index a	{
+	font-size: 11px;
+	padding: 0 8px;
+	}
+	
+#index select	{
+	font-size: 12px;
+	border: 1px solid #888;
+	}
+	
+#index input.small	{
+	margin: 0 0 0 5px;
+	width: 30px;
+	color: red;
+	font-weight: bold;
+	font-size: 13px;
+	border: 1px solid #888;
+	vertical-align: baseline;
+	}
+		
+div.links	{
+	width: 85%;
+	margin: 0 auto;
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	padding-top: 8px;
+	background: #E8EEF7;
+	text-align: left;
+	}
+	
+.links div	{
+	padding: 5px 13px 10px 20px;
+	border-bottom: 1px dotted #888;
+	}
+	
+.links div p	{
+	padding: 2px 0 0 40px;
+	}
+	
+div#body	{
+	line-height: 17px;
+	width: 85%;
+	margin: auto;
+	padding: 20px 0;
+	background: #fff;
+	border-bottom: 1px solid #888;
+	border-right: 1px solid #888;
+	border-left: 1px solid #888;
+	text-align: left;
+	}
+	
+#body p	{
+	color: #000;
+	padding-top: 10 0;
+	margin: 0 40px;
+	}
+#actions {
+	display: none;
+	}
+
+a.exclude	{
+	float: right;
+	margin: 0;
+	padding: 0;
+	}
+	
+#small_matches_prefs {
+    display:none;
+}
+/*
+Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.7.0
+*/
+.yui-button{display:-moz-inline-box;display:inline-block;vertical-align:text-bottom;}.yui-button .first-child{display:block;*display:inline-block;}.yui-button button,.yui-button a{display:block;*display:inline-block;border:none;margin:0;}.yui-button button{background-color:transparent;*overflow:visible;cursor:pointer;}.yui-button a{text-decoration:none;}.yui-skin-sam .yui-button{border-width:1px 0;border-style:solid;border-color:#808080;background:url(../images/yui270/build/assets/skins/sam/96b257a32a932f7739d7dab52b38ee8fcb_sprite.png) repeat-x 0 0;margin:auto .25em;}.yui-skin-sam .yui-button .first-child{border-width:0 1px;border-style:solid;border-color:#808080;margin:0 -1px;_margin:0;}.yui-skin-sam .yui-button button,.yui-skin-sam .yui-button a{padding:0 10px;font-size:93%;line-height:2;*line-height:1.7;min-height:2em;*min-height:auto;color:#000;}.yui-skin-sam .yui-button a{*line-height:1.875;*padding-bottom:1px;}.yui-skin-sam .yui-split-button button,.yui-skin-sam .yui-menu-button button{padding-right:20px;background-position:right center;background-repeat:no-repeat;}.yui-skin-sam .yui-menu-button button{background-image:url(yui270/build/button/assets/skins/sam/6305efb37fa05af65c79b58b9d4c1b03cb_menu-button-arrow.png);}.yui-skin-sam .yui-split-button button{background-image:url(yui270/build/button/assets/skins/sam/ced974d5c685e5dfa0a37b824a6b5d48cb_split-button-arrow.png);}.yui-skin-sam .yui-button-focus{border-color:#7D98B8;background-position:0 -1300px;}.yui-skin-sam .yui-button-focus .first-child{border-color:#7D98B8;}.yui-skin-sam .yui-button-focus button,.yui-skin-sam .yui-button-focus a{color:#000;}.yui-skin-sam .yui-split-button-focus button{background-image:url(yui270/build/button/assets/skins/sam/36e66540d2feba76b8991e18b76fe93bcb_split-button-arrow-focus.png);}.yui-skin-sam .yui-button-hover{border-color:#7D98B8;background-position:0 -1300px;}.yui-skin-sam .yui-button-hover .first-child{border-color:#7D98B8;}.yui-skin-sam .yui-button-hover button,.yui-skin-sam .yui-button-hover a{color:#000;}.yui-skin-sam .yui-split-button-hover button{background-image:url(yui270/build/button/assets/skins/sam/36e66540d2feba76b8991e18b76fe93bcb_split-button-arrow-hover.png);}.yui-skin-sam .yui-button-active{border-color:#7D98B8;background-position:0 -1700px;}.yui-skin-sam .yui-button-active .first-child{border-color:#7D98B8;}.yui-skin-sam .yui-button-active button,.yui-skin-sam .yui-button-active a{color:#000;}.yui-skin-sam .yui-split-button-activeoption{border-color:#808080;background-position:0 0;}.yui-skin-sam .yui-split-button-activeoption .first-child{border-color:#808080;}.yui-skin-sam .yui-split-button-activeoption button{background-image:url(yui270/build/button/assets/skins/sam/890272b241c1d8a0db3ce5680b71fab0cb_split-button-arrow-active.png);}.yui-skin-sam .yui-radio-button-checked,.yui-skin-sam .yui-checkbox-button-checked{border-color:#304369;background-position:0 -1400px;}.yui-skin-sam .yui-radio-button-checked .first-child,.yui-skin-sam .yui-checkbox-button-checked .first-child{border-color:#304369;}.yui-skin-sam .yui-radio-button-checked button,.yui-skin-sam .yui-checkbox-button-checked button{color:#fff;}.yui-skin-sam .yui-button-disabled{border-color:#ccc;background-position:0 -1500px;}.yui-skin-sam .yui-button-disabled .first-child{border-color:#ccc;}.yui-skin-sam .yui-button-disabled button,.yui-skin-sam .yui-button-disabled a{color:#A6A6A6;cursor:default;}.yui-skin-sam .yui-menu-button-disabled button{background-image:url(yui270/build/button/assets/skins/sam/4df7235ca027f2546b2a216e59f81fb0cb_menu-button-arrow-disabled.png);}.yui-skin-sam .yui-split-button-disabled button{background-image:url(yui270/build/button/assets/skins/sam/db73dce6da2f5c5f02399c93488ce69ecb_split-button-arrow-disabled.png);}
+
+</style>
+
+</head>
+
+<body onload=" focusContent();">
+
+<link rel="stylesheet" type="text/css" href="/r/build/css/tii/88ee4ccd3555f2b759921fb5d58d83e5cb_container.css" media="all" />
+
+
+
+
+<script type="text/javascript" src="/r/build/js/tii/8b608684a5f4aec1b540987c93498c01cb_tii_anonymous_marking.js"></script>
+
+
+
+
+<script type="text/javascript">
+
+function initAnonymousMarking () {
+    // initialize panel.  
+    var config = {
+            zindex: 4,
+            underlay: 'none',
+            modal: true,
+            visible: false,
+            draggable: false,
+            close: false,
+            fixedcenter: true
+    };
+    if ($('disable_anonymous_marking')) {
+        disableAnonymousMarkingPanel = new IP.widget.Panel($('disable_anonymous_marking'), config);
+        if($D.hasClass('disable_anonymous_marking', 'app')) {
+            disableAnonymousMarkingPanel.center = function () {
+                var nViewportOffset = 20,
+                    elementWidth = this.element.offsetWidth,
+                    elementHeight = this.element.offsetHeight,
+                    viewPortWidth = $D.getViewportWidth(),
+                    viewPortHeight = $D.getViewportHeight(),
+                    x,
+                    y;
+
+                if (elementWidth < viewPortWidth) {
+                    x = (viewPortWidth / 2) - (elementWidth / 2) + $D.getDocumentScrollLeft();
+                } else {
+                    x = nViewportOffset + $D.getDocumentScrollLeft();
+                }
+
+				if (browser == 'Internet Explorer') {
+					x = 0;
+				}
+                y = 2 + $D.getDocumentScrollTop();
+
+                this.cfg.setProperty("xy", [parseInt(x, 10), parseInt(y, 10)]);
+                this.cfg.refireEvent("iframe");
+            };
+        }
+        disableAnonymousMarkingPanel.render(document.body);
+        disableAnonymousMarkingPanel.hideEvent.subscribe(function () { $('anonymous_error').innerHTML = ''; }, false);
+        disableAnonymousMarkingPanel.hide();
+        Element.show($('disable_anonymous_marking'));
+    }
+}
+
+function disableAM (data) {
+    $('anonymous_title').innerHTML = data.title;
+    document.disable_anonymous_marking_form.objectid.value = data.oid;
+    disableAnonymousMarkingPanel.show();
+}
+
+function checkDisableAM () {
+    var form = document.disable_anonymous_marking_form;
+    if (form.reason.value.length <= 5) {
+        $('anonymous_error').innerHTML = "Please provide a reason for turning anonymous marking off.";
+    }
+    else {
+        form.submit();
+    }
+    return;
+}
+
+YAHOO.util.Event.onDOMReady(initAnonymousMarking);
+
+</script>
+
+<div id="disable_anonymous_marking" class="app" style="display: none;">
+<div class="anonymous_frames">
+<form method="post" name="disable_anonymous_marking_form">
+    <input type="hidden" name="objectid" value=""/>
+    <input type="hidden" name="disable_anonymous_marking" value="1"/> 
+    <div class="anonymous_header">
+    	<h1>turn off anonymous marking</h1>
+		<p>Please state reason for turning off Anonymous Marking for: <span id="anonymous_title"></span><br />
+			<strong>Warning: Administrator has access to this information. This setting is permanent.</strong>
+        
+            </p>
+        
+    </div>
+    <div class="anonymous_body">
+        <textarea name="reason" cols="30" rows="3"></textarea>
+        <p id="anonymous_error"></p>
+    </div>
+    <div class="anonymous_footer">
+		<div class="anonymous_footer_buttons">
+    		<span class="submit_form_button"><input type="button" onClick="checkDisableAM();" value="submit"></span><br>
+        	<span class="submit_form_button"><input type="button" value="Cancel" onClick="disableAnonymousMarkingPanel.hide();"></span>
+		</div>
+    </div>
+</form>
+</div>
+</div>
+<div id="actions">
+<p>This is a preview of the print version of your report. Please click "print" to continue or "done" to close this window.</p>
+<script type="text/javascript" language="javascript">
+	var browserName=navigator.appName;
+	var browserVer=parseInt(navigator.appVersion);
+	if ((navigator.appVersion.indexOf("Mac")!=-1) && (browserName == "Microsoft Internet Explorer")) {
+		document.write('<span class="AR10">Type COMMAND-P to print.</span><br><br>');
+	} else {
+		document.write('<a href="javascript:window.print();">print</a>&nbsp;&nbsp;');
+	}
+</script>
+<a href="javascript:window.close();">done</a>
+</div>
+
+
+<!-- ########################### Preferences pop-up ##########################--> 
+<div id="prefs" style="visibility:hidden">
+<div class="padding">
+<form name="prefs_form" method="post" accept-charset="utf-8">
+<script type="text/javascript" language="javascript">
+function savePrefs(){
+	if (document.prefs_form.changed.value == 1){
+		document.prefs_form.submit();
+	}else{
+        hidePrefsPane();
+	}
+}
+
+function showPrefsPane(){
+	document.getElementById('prefs').style.visibility='visible';
+}
+
+function hidePrefsPane(){
+    document.getElementById('prefs').style.visibility='hidden';
+}
+
+
+var overlay;
+function showSmallMatchExclusions() {
+    var linkRegion = $D.getRegion('exclude_small_matches_link');
+    var panelRegion = $D.getRegion('small_matches_prefs');
+    var indexRegion = $D.getRegion('index');
+    
+    var topLocation = indexRegion.bottom;
+    $D.setStyle('small_matches_prefs', 'top', topLocation + 'px');
+    $D.setStyle('small_matches_prefs', 'left', linkRegion.left + 'px');
+    
+    $D.setStyle('small_matches_prefs', 'visibility', 'visible');
+
+    // focus the field
+    $D.hasClass('exclude_by_percent_row', 'selected') ? $('exclude_by_percent_value').focus() : $('exclude_by_words_value').focus();
+}
+
+function hideSmallMatchExclusions() {
+    $D.setStyle('small_matches_prefs', 'visibility', 'hidden');
+}
+
+function selectSmallExclusionMethod(enableType) {
+    if(enableType == 'words') {
+        $('exclude_by_words_value').focus();
+        
+        $D.addClass('exclude_by_words_row', 'selected');
+        $D.removeClass('exclude_by_percent_row', 'selected');
+        $D.removeClass('exclude_by_words_row', 'disabled');
+        $D.addClass('exclude_by_percent_row', 'disabled');
+    }
+    else {
+        $('exclude_by_percent_value').focus();
+        
+        $D.removeClass('exclude_by_words_row', 'selected');
+        $D.addClass('exclude_by_percent_row', 'selected');
+        $D.addClass('exclude_by_words_row', 'disabled');
+        $D.removeClass('exclude_by_percent_row', 'disabled');
+    }
+}
+
+function updateExcludePercentage(wordCount) {
+    var percent = Math.floor(wordCount / 4077 * 100);
+    
+    $('exclude_by_percent_value').value = percent;
+}
+
+function updateExcludeWordCount(percent) {
+    var wordCount = Math.floor((percent/100) * 4077);
+    
+    $('exclude_by_words_value').value = wordCount;
+}
+
+function submitSmallMatchesChange() {
+    var excludeBy = $D.hasClass('exclude_by_percent_row', 'selected') ? 'percent' : 'words';
+    var excludeValue = excludeBy == 'percent' ? $('exclude_by_percent_value').value : $('exclude_by_words_value').value;
+    
+    changeSmallMatchExclusion(excludeBy, parseInt(excludeValue), 4077);
+}
+
+</script>
+</script>
+<input type="hidden" name="changed" value="0">
+        <div class="pref_rows">
+                <label for="use_colors">color-code matches:</label>
+                <select id="use_colors" name="use_colors" onchange="document.prefs_form.changed.value=1">
+                    <option value="1">yes
+                    <option value="0" selected>no
+                </select>
+                <div class="clear"></div>
+        </div>
+        <div class="pref_rows">
+                <label for="def_report_mode">default mode:</label>
+                <select id="def_report_mode" name="def_report_mode" onchange="document.prefs_form.changed.value=1">
+                    <option value="0">show highest matches together
+                    <option value="1">show matches one at a time
+                    <option value="2">quickview (classic) report
+                </select>
+                <div class="clear"></div>
+        </div>
+        <div class="pref_rows">
+                <label for="report_scrolling">auto-navigation:</label>
+                <select id="report_scrolling" name="report_scrolling" onchange="document.prefs_form.changed.value=1">
+                    <option value="0">jump to next match
+                    <option value="1">scroll to next match
+                </select>
+                <div class="clear"></div>
+        </div>
+        
+        <div id="prefs_confirm">
+            <button onClick="savePrefs()" >Save</button>  
+         <a href="javascript:void(0);" onClick="hidePrefsPane();">Cancel</a>
+        </div>
+</form>
+</div>
+</div>
+<!-- ########################### END Preferences pop-up  ##########################--> 
+
+<!-- ########################### BEGIN small matches pop-up  ##########################--> 
+<div id="small_matches_prefs">
+    <form onsubmit="submitSmallMatchesChange(); return false;">
+        <ul>
+            <li id="exclude_by_words_row" class="selected">
+                <label for="exclude_by_words_value">Word Count: </label>
+                <input type="text" id="exclude_by_words_value" size="3" value="" onkeyup="updateExcludePercentage(this.value)" onfocus="selectSmallExclusionMethod('words')"> words
+            </li>
+            <li id="exclude_by_percent_row" class="disabled">
+                <label for="exclude_by_percent_value">Percentage: </label>
+                <input type="text" id="exclude_by_percent_value" size="3" value="" max-length="3" onkeyup="updateExcludeWordCount(this.value)" onfocus="selectSmallExclusionMethod('percent')"> %
+            </li>
+        </ul>
+        <p><input type='submit' value="submit"> or <a href="javascript:hideSmallMatchExclusions()">Cancel</a></p>
+    </form>
+</div>
+
+<!-- ########################### END small matches pop-up  ##########################-->
+
+<!-- ########################### Top of Report  ##########################--> 
+<div id="top">
+    <div id="content">
+    
+        <!-- ######### Top Bar  ##########################--> 
+        <div id="top_bar">
+                <ul id="top_bar_list1">
+                      <!-- Preferences --><li><a href="javascript:showPrefsPane();">preferences</a></li> 
+                </ul>
+                <ul id="top_bar_list2">
+                      
+                </ul>
+                <div class="clear"></div>
+        </div>   
+        <!-- ######### END Top Bar  ##########################--> 
+        
+        
+        <!-- ######### Top Body  ##########################--> 
+        <div id="top_body">
+        
+            <div id="print_wrapper">
+                <div class="general_info">
+                    <!-- Logo --> 
+                    <h2>
+                        <span class=""></span>
+                        <strong>Turnitin</strong>
+                        <em>Originality Report</em>
+                     </h2>
+                 
+                     <!-- Paper Info -->               
+                     <ul>
+                         <li>Processed on: 23-May-2019  6:18 PM PDT</li>
+                         <li>ID: 1132575175 </li>
+                         <li>Word Count: 4077</li>
+                         <li>Submitted: 2</li>
+                     </ul>
+                </div>
+
+                 <!-- Paper Title --> 
+                <h3>
+                    <strong>9638350_BijuAle_STW307CR</strong> 
+                    
+                    <em>By Student User</em>
+                    
+                </h3>
+            </div>
+            
+            <div id="similarity_print_wrapper">
+                <div class="similarity_box">
+                    <div class="overall_similarity">
+                        <div class="color_box green">&nbsp;</div>
+                        <div class="similarity_title">Similarity Index</div>
+                        <div class="similarity_percent">3%</div>
+                    </div>
+                    <div class="similarity_by_source">
+                        <div class="similarity_title">Similarity by Source</div>
+                        <dl>
+                            <dt>Internet&nbsp;Sources:</dt>
+                            <dd>2%</dd>
+                            <div class="clear"></div>
+                            <dt>Publications:</dt>
+                            <dd>1%</dd>
+                            <div class="clear"></div>
+                            <dt>Student&nbsp;Papers:</dt>
+                            <dd>3%</dd>
+                            <div class="clear"></div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+                                 
+        </div>
+        <!-- ######### END Top Body  ##########################--> 
+        
+        
+    </div>
+</div>
+<!-- ########################### END Top of Report  ##########################--> 
+
+
+
+<!-- ########################### TOOLBAR  ##########################--> 
+<div id="index">
+	<div id="toolbar_wrapper">
+        
+	</div>
+</div>
+<!-- ########################### END TOOLBAR  ##########################--> 
+
+
+<div class="links">
+	<div>
+	<p>1% match (student papers from 16-Sep-2014)</p>
+
+	<p><a href="javascript:openDSC(452671367,1,'0')" target="_blank" style="color:red">Submitted to Monash University on 2014-09-16</a></p>
+
+	</div>
+	<div>
+	<p>1% match (Internet from 17-Apr-2019)</p>
+
+	<p><a href="https://paulojuarezpereira.com/2014/07/28/zuruck-zum-paradies-eine-gegenkultur-gegen-gehirn-revolution/?msg=fail&shared=email" target="_blank" style="color:green">https://paulojuarezpereira.com/2014/07/28/zuruck-zum-paradies-eine-gegenkultur-gegen-gehirn-revolution/?msg=fail&shared=email</a></p>
+
+	</div>
+	<div>
+	<p>1% match (student papers from 14-Aug-2013)</p>
+
+	<p><a href="javascript:openDSC(25576191,2,'0')" target="_blank" style="color:blue">Submitted to University of Leeds on 2013-08-14</a></p>
+
+	</div>
+	<div>
+	<p>1% match (student papers from 04-May-2017)</p>
+
+	<p><a href="javascript:openDSC(799894870,1,'0')" target="_blank" style="color:brown">Submitted to Segi University College on 2017-05-04</a></p>
+
+	</div>
+</div>
+<div id="body" tabIndex="0">
+<p>Oculus Aquila Application of Interactive Pervasive Computing for bike-accident alert and geo-tracking. (a) Finished Prototype (Front). (b) Finished Prototype (Back) Biju Ale SID: 9638350 15 March, 2019 A STW307CR individual project documented for the degree of BSc. Computing (Hons.) in Computing Faculty of Engineering, Environment and Computing Coventry University Contents <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Segi University College on 2017-05-04"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:799894870&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">1 Introduction 1.1 Project</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Motivation . . . . . . . . . . . . . . . . . . . . . . . . . . <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Segi University College on 2017-05-04"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:799894870&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">1.</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> 2 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Segi University College on 2017-05-04"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:799894870&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">Problem Statement</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> . . . . . . . . . . . . . . . . . . . . . . . . . . 1.3 Aim . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1.4 Objectives . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1.4.1 Technical . . . . . . . . . . . . . . . . . . . . . . . . . . . 1.4.2 Academic . . . . . . . . . . . . . . . . . . . . . . . . . . . 1.4.3 Personal . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 Justification 2.1 Rich Picture . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2.2 Components required . . . . . . . . . . . . . . . . . . . . . . . . . 3 The Build 3.1 Working Mechanism . . . . . . . . . . . . . . . . . . . . . . . . . 3.2 Block Diagram . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.3 Software Tools Required . . . . . . . . . . . . . . . . . . . . . . . 3.4 Libraries . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.5 Procedure to get started . . . . . . . . . . . . . . . . . . . . . . . 3.6 Circuit Layout . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.7 Schematics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.8 PCB Diagram . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.9 Pin Configuration . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.10 The Sketch . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.10.1 Variable & Instance declaration . . . . . . . . . . . . . . . 3.10.2 Setup Function . . . . . . . . . . . . . . . . . . . . . . . . 3.10.3 Loop function . . . . . . . . . . . . . . . . . . . . . . . . . 3.11 Final Prototype . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.11.1 Tracking Result . . . . . . . . . . . . . . . . . . . . . . . . 3.11.2 Video demonstration . . . . . . . . . . . . . . . . . . . . . 4 Troubleshooting 4.1 Troubleshooting . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4.1.1 Accelerometer Issues . . . . . . . . . . . . . . . . . . . . . 4.1.2 GPS Module Issues . . . . . . . . . . . . . . . . . . . . . . 4.1.3 GSM Module Issues . . . . . . . . . . . . . . . . . . . . . 4.1.4 Arduino UNO Issues . . . . . . . . . . . . . . . . . . . . . 4 4 4 4 4 4 5 5 6 6 7 11 11 12 13 14 14 15 16 17 17 18 18 19 21 26 29 29 30 30 30 30 30 31 1 5 Other Applications 5.1 Other Application . . . . . . . . . . . . . . . . . . . . . . . . . . 5.2 Future Work . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5.2.1 Areas of Improvement . . . . . . . . . . . . . . . . . . . . 5.2.2 Areas of Extension . . . . . . . . . . . . . . . . . . . . . . 5.3 Lessons Learnt . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6 Appendix 6.1 Image Credit . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6.2 Activity Diagram Legend . . . . . . . . . . . . . . . . . . . . . . 6.3 Word Count . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Bibliography 32 32 32 32 32 33 34 34 34 36 37 2 List of Figures 2.1 Rich Picture depicting the high-level conceptual overview of the system. (Image credit on Appendix section 6.1) . . . . . . . . . . 2.2 Arduino UNO R3 . . . . . . . . . . . . . . . . . . . . . . . . . . . 2.3 Breadboard and SIM card . . . . . . . . . . . . . . . . . . . . . . 2.4 GSM Module - SIM900A . . . . . . . . . . . . . . . . . . . . . . . 2.5 GPS Module - Neo-6M . . . . . . . . . . . . . . . . . . . . . . . . 2.6 Accelerometer - GY-61 / ADXL335 . . . . . . . . . . . . . . . . . 3.1 Activity Diagram depicting the dynamic model. (View Legend in section 6.2 of Appendix) . . . . . . . . . . . . . . . . . . . . . 3.2 Block Diagram depicting the structural model.) . . . . . . . . . . 3.3 Navigating the Arduino IDE) . . . . . . . . . . . . . . . . . . . . 3.4 Breadboard diagram of the system. . . . . . . . . . . . . . . . . . 3.5 Complete schematics of the system. . . . . . . . . . . . . . . . . . 3.6 Printed circuit board diagram . . . . . . . . . . . . . . . . . . . . 3.7 Variable and instance declarartion for all components. . . . . . . 3.8 Setup function . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.9 GSM Initialisation . . . . . . . . . . . . . . . . . . . . . . . . . . 3.10 GPRS Initialisation . . . . . . . . . . . . . . . . . . . . . . . . . . 3.11 SMS initialisation . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.12 Loop function . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3.13 Accident Detection function . . . . . . . . . . . . . . . . . . . . . 3.14 Function to detect bike Upturn, left flip, right flip detection. . . . 3.15 Function to monitor track command via SMS. . . . . . . . . . . . 3.16 Function to monitor track command via SMS. . . . . . . . . . . . 3.17 Function to get the parsed GPS coordinates. . . . . . . . . . . . 3.18 NMEA codes and their meanings. . . . . . . . . . . . . . . . . . . 3.19 NMEA acronyms and their meanings. . . . . . . . . . . . . . . . 3.20 Function to Post coordinates to DWEET.IO . . . . . . . . . . . . <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Segi University College on 2017-05-04"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:799894870&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">3.21 Final Prototype</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> (Front View) . . . . . . . . . . . . . . . . . . . . <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Segi University College on 2017-05-04"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:799894870&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">3.22 Final Prototype</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> (Back View) . . . . . . . . . . . . . . . . . . . . <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Segi University College on 2017-05-04"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:799894870&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">3.23 Final Prototype</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> (Side View) . . . . . . . . . . . . . . . . . . . . . <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 4 in source list: Submitted to Segi University College on 2017-05-04"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:799894870&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:brown" class="brown">3.24</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Freeboard.io dashboard with Google map marker showing the bike location and the gauge showing battery level.) . . . . . . . . 6 7 8 9 9 10 11 12 13 15 16 17 18 19 19 20 20 21 21 22 23 23 24 24 25 25 26 27 28 29 3 Chapter 1 Intro duction 1.1 Pro ject Motivation As an avid bike rider myself, who commutes 20km daily on the bustling streets of Kathmandu, security is of prime concern to me. Security in this context is bicentric, i.e. security as in the rider’s safety during commute and security of the bike itself. Chances of recovery are slim once a bike is stolen in Kathmandu. Unlike motor vehicles, bikes usually do not have registration IDs associated with it, making it difficult to track. Likewise, tracking could also help responders attend an accident scenario in a bike trail or on regular rides. The aforementioned problem is a well-defined one and could be addressed with the application of interactive pervasive computing. 1.2 Problem Statement • Send an alert with GPS coordinates of the accident site during an accident. • Track the bike and continuously send the GPS coordinates of the bike upon receiving track command remotely. 1.3 Aim To develop a low-profile, low-powered, & a high-coverage IOT system that can be installed on a bike which can send GPS coordinates during an accident or upon remote request during a theft. 1.4 Objectives 1.4.1 Technical • To define the scope of the problem to be solved. • To identify the components required to construct the proposed solution. 4 • To model the structural aspect of the system. • To model the dynamic aspect of the system. • To design the sub-routines to be executed in the Arduino. • To unit test each routine and to integrate them. • To make use of IOT web services for dashboard. • To document the project in report and video. 1.4.2 Academic • To create a simple user-centric interactive pervasive computing applica- tion. • To understand if a problem is solvable using pervasive computing and to come up with a prototype solution. • To utilize IOT web services and web APIs and integrate them into the project for notification and/or data persistence. 1.4.3 Personal • To develop hands-on skills in DIY-electronics project. • To build a portfolio of IOT project work. • To understand how GPS, accelerometer, and GSM units work. • To understand the analysis, design, and implementation phases of IOT systems. 5 Chapter 2 Justification 2.1 Rich Picture Figure 2.1: Rich Picture depicting the high-level conceptual overview of the system. (Image credit on Appendix section 6.1) The system needs to take into two scenarios simultaneously. First, it must detect an accident and second, it must also detect a stolen state of the bike so that it can begin pushing the GPS coordinates in a certain interval. For the first scenario, the accelerometer is used. Since the accelerometer measures the ’G’ force on either of the 3-dimensions (Olsson 2012), it can be set up to detect whether the bike’s planar position has been subverted, flipped to the right, or flipped to the left. For each of this position defined as the threshold 6 a constant check is done by the Arduino. Once the threshold of either of this event is exceeded, the state is mapped to an accident. This, in turn, triggers the web request by the GSM module to send the current GPS coordinate pulled from the GPS module. The first scenario is a fully automated active system. In the second scenario, the system must act passively. The only way to map a stolen bike is to explicitly inform the Arduino that the bike has been stolen. Once a bike has been deemed stolen, the rider sends a text message to the GSM module’s phone address. Upon receiving this message the Arduino begins tracking the bike and routinely pushing the GPS coordinates to the DWEET server. In both cases, Dweet.io is used as a database server which stores the values in a JSON format (Schwartz 2016). This is then used as the data source for the freeboard dashboard. The dashboard is set up to display the coordinates in Google Maps. 2.2 Components required Figure 2.2: Arduino UNO R3 The main microcontroller prototyping platform. Uno is low-cost and has a rich support community on the web. It also has high support for a variety of components such as shields and sensors. (Blum 2018) 7 (a) Breadboard (b) SIM Card Figure 2.3: Breadboard and SIM card Breadboard for constructing the system circuitry. Sim Card for GSM Mod- ule. Must be micro size i.e. (12*15)mm. 8 Figure 2.4: GSM Module - SIM900A For networking with city wide network coverage. Figure 2.5: GPS Module - Neo-6M To sense the real-time GPS coordinates. 9 Figure 2.6: Accelerometer - GY-61 / ADXL335 To detect the orientation of the bike in 3-dimension, for accident detection. 10 Chapter 3 The Build 3.1 Working Mechanism Figure 3.1: Activity Diagram depicting the dynamic model. (View Legend in section 6.2 of Appendix) Once the system is activated and deployed in the field, its state is changed by two events. First, when an SMS with track command as the text is received. And second when there is a detection of an accident. The Arduino checks in an iterative clock cycle, if these events are fired. The GSM module’s GPRS feature is used for wide-area network connectivity. The accident is detected if the accelerometer senses the bike’s planar orien- tation is upturned, flipped to the right, or flipped to the left. The GPS coordinates are received by the GPS module, NEO-6M and upon the aforementioned events being trigger, the Arduino sends the coordinates via 11 the GSM to the Dweet server which is rendered in the Freeboard.io dashboard. 3.2 Block Diagram The block diagram below shows the structural view on the relation and message flow between the components of the system. Figure 3.2: Block Diagram depicting the structural model.) 12 3.3 Software Tools Required Figure 3.3: Navigating the Arduino IDE) Software Tool Category Description. Arduino IDE 1.8.9 Fritzing 0.9.3 Visual Paradigm CE 15.2 Integrated Development Environment Computer Aided Design (CAD) Modelling IDE to compile, debug, and program the Arduino For diagramming the schematics of the system. To model the dynamic and structural aspects of the system Creately (online) Drawing To draw the rich picture. Table 3.1: Software tools required used to build the system. 13 3.4 Libraries Liabrary Name Version Description. TinyGPS++ Adafruit FONA library SoftwareSerial 1.0.2 1.0.6 1.0 To parse the NMEA sentences to the floating point latitude and longitude values.(Hart 2019) To enable and employ the GPRS, and SMS functionality from the SIM. (Ada 2019) To set the baud rates of the sen- sors and to allow serial communi- cation on the digital and analaog IO pins of the UNO.(Arduino.cc 2019) Table 3.2: Libraries required to program the system. 3.5 Procedure to get started • Set up the connections as shown in figure 3.4 • Take reference of table 3.9 to verify the correct pin configuration. • Go to ’Tools’ then ’Manage Libraries’ option. Ensure all correct libaries as shown in table 3.4. • Go to ’Tools’ then ’Board’. Select Arduino/Genuino UNO as the board. • Go to ’Tools’ then ’Port’. Select the correct USB port on the computer where the Arduino is connected. • Refer to the sketch shown in section 3.10. • Press key combination - Ctrl/Cmd+ R to verify and upload the code. • Press key combination - Ctrl/Cmd + U to upload the sketch to UNO. • Wait fot the sketch to be uploaded. • Test the system and view the serial monitor for the ouput (Ctrl/Cmd+Shift+M). If any problems were encountered while following the procedure, refer to the troubleshooting section in 4.1 14 3.6 Circuit Layout Figure 3.4: Breadboard diagram of the system. 15 3.7 Schematics Figure 3.5: Complete schematics of the system. 16 3.8 PCB Diagram Figure 3.6: Printed circuit board diagram 3.9 Pin Configuration Component Pin Pin No. GPS (NEO-6M) GPS (NEO-6M) GPS (NEO-6M) GPS (NEO-6M) GSM (Sim900a) GSM (Sim900a) GSM (Sim900a) GSM (Sim900a) GSM (Sim900a) (Optional) Accelerometer ADXL335 Accelerometer ADXL335 Accelerometer ADXL335 Accelerometer ADXL335 Accelerometer ADXL335 GND GND VCC 5V VT Digital 3 VR Digital 2 GND GND VCC 5V TX Digital 6 RX Digital 5 RST Digital 4 GND GND VCC 3.3V Xout Analog 0 Yout Analog 1 Xout Analog 2 Table 3.3: Pin Configuration between the arduino and components. 17 3.10 The Sketch 3.10.1 Variable & Instance declaration Figure 3.7: Variable and instance declarartion for all components. The required variables are assigned. The pins are selected for analogue and digital IO operations. 18 3.10.2 Setup Function Figure 3.8: Setup function Serial baud rate is set. The GSM, GPRS, and the SMS features are intilialized. The setup function calls the following routines. GSM intilialisation Figure 3.9: GSM Initialisation 19 GPRS intilialisation Figure 3.10: GPRS Initialisation SMS intilialisation Figure 3.11: SMS initialisation 20 3.10.3 Loop function Figure 3.12: Loop function Arduino constantly monitors for SMS command to track the GPS. Simultane- ously it also monitors the accident. In either case, if the conditional is valid, it gets the GPS information and posts it to DWEET. Bike Accident detection function Figure 3.13: Accident Detection function The X,Y,Z orientation are read and checked for threshold defined for bike up- turn, left flip, and right flip. It calls the following sub-routines. 21 Figure 3.14: Function to detect bike Upturn, left flip, right flip detection. Upturn, left flip, right flip detection 22 SMS check function Figure 3.15: Function to monitor track command via SMS. Figure 3.16: Function to monitor track command via SMS. Function to monitor track command via SMS. This is checked in loop by the arduino. 23 Get GPS Coordinates Figure 3.17: Function to get the parsed GPS coordinates. NMEA Sentences - Parsing GPS Data The National Marine Electronics Association (NMEA) is an organisation that has standardized the communica- tion interface for GPS receivers. The data intercepted by the GPS is read as what is called a NMEA sentence. (NMEA.org 2019) NEO-6M GPS module in its registers NMEA sentences in raw readings. Each sentence is prepended by a dollar symbol and 5 uppercase letters. The content is separated by a comma. The reference to the meanings of NMEA sentence are given below. Figure 3.18: NMEA codes and their meanings. (DePriest 2019) 24 Figure 3.19: NMEA acronyms and their meanings. (DePriest 2019) TinyGPS++ library, the library developed by Mikal Hart to interface with the NEO-6M (Hart 2019) was used to parse the NMEA sentence to specific string tokens. For the project, latitude and longitude values in 6 decimal places were extracted with the help of this library. Post to DWEET.IO Figure 3.20: Function to Post coordinates to DWEET.IO This function adapted from Swartzhz in his book, ’Internet of Things with arduino Cookbook’ (Schwartz 2016), creates a JSON payload of GPS coordi- nates. Then it uses the GPRS of the SIM900 to make a POST request to the 25 DWEET.IO server. Once, the server receives the data it immediately updates the Freeboard dashboard’s google map. (Schwartz 2016) 3.11 Final Prototype Figure 3.21: Final Prototype (Front View) 26 Figure 3.22: Final Prototype (Back View) 27 Figure 3.23: Final Prototype (Side View) 28 3.11.1 Tracking Result Figure 3.24: Freeboard.io dashboard with Google map marker showing the bike location and the gauge showing battery level.) 3.11.2 Video demonstration Hyperlink: Google drive Link to the video demo. https://drive.google.com/open?id=1-1lDFwuljtRxMAXbj-Njmb2W8TyHx9WU 29 Chapter 4 Troublesho oting 4.1 Troubleshooting This section deals with the possible pittfalls or the things that could go wrong while configuring the system. Since, there are 3 components that needs to be integrated it is quite complex to manage everything and get it right in the first attempt. Following issues arose during implementation and testing. The steps that were followed to remedy them are also provided below. 4.1.1 Accelerometer Issues • Check if the soldering on the pins are neatly done. • Check if the pins are connected in the right order. • Ensure the module is connected to 3.3V and not 5V. 5V would damage it. • Ensure the pins are correctly defined in the IDE. 4.1.2 GPS Module Issues • GPS module requires a clear line of sight towards the sky. It needs to make link with the satellite. • Check if the soldering on the pins are neatly done. • Check if the pins are connected in the right order. • Ensure the pins are correctly defined in the IDE. • Check if the antennae head is connected well with the module. 4.1.3 GSM Module Issues • Wait for the module to gain signal. It blinks 3 times a second (Javed 2016) once it has good range. • Ensure the SIM has enough credit. 30 • Ensure the SIM functions right in regular phone. • Ensure the SIM card is clicked in place, into the slot. • Check if the soldering on the pins are neatly done. • Check if the pins are connected in the right order. • Ensure the pins are correctly defined in the IDE. • Check if the antennae head is tightened well. • Test several functions with the library example of Adafruit Fona (Schwartz 2016). 4.1.4 Arduino UNO Issues • Ensure the correct board is selected. • Ensure the correct port is selected. • Check for error codes and library import issues. • Ensure compile time errors are fixed before uploading. 31 Chapter 5 Other Applications 5.1 Other Application The possible deployment domains where my system can cater-to area as follows. • To track the riders and assess their safety in a competetive cycle sport event such as trail bike, enduro, and mountain bike racing. • Can be used to explore new or unfamiliar places without fear of losing the route. The route can be traced back to the origin. This could be benificial for someone new to a place such as a foreign immigrant or a newly admitted campus student who needs to navigate large areas. • Can be installed on delivery bikes of the food or courier agencies to track orders and ensure their safety. 5.2 Future Work 5.2.1 Areas of Improvement • Minify device footprint replacing UNO with Arduino Nano and the bread- board with matrix board. • Use waterproof casing. • Use 4G for better connectivity and low latency. 5.2.2 Areas of Extension • Phone interface to program preferences and calibration. • Use custom web server and richer dashboard. 32 • Leverage other GPS data over 4G - velocity, direction. • Enable data persistence on local datastore for offline storage and on cloud for data analysis and analytics. 5.3 Lessons Learnt • Analysis, design, implementation of Interactive Pervasive Computing so- lutions. • Research, troubleshooting, and replicable documentation authoring skills. • Translating data from physical phenomena into valuable utility for better decision making and for enhancing quality of life. • Usabality and comprehensible results must be taken into account at every phase of system development. • Engineering must be done with ethics and human service as an end in mind. • Pervasive computing can be a means to a solving humanitarian issues. 33 Chapter 6 App endix 6.1 Image Credit Sources of image used in section 2.1. The permission set by the authors of all images used in this report allows for sharing, modification, and reuse. • Author: Ben Morrow Caption: Bicycle crash victim in Tucson Source: https://www.flickr.com/photos/billmorrow/5629782610 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://paulojuarezpereira.com/2014/07/28/zuruck-zum-paradies-eine-gegenkultur-gegen-gehirn-revolution/?msg=fail&shared=email"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&sid=1735247698&n=3722&svr=322&session-id=1f85161052e6bad4bc0482e7ee2ee43e', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">License: Attribution 2.0 Generic (CC BY 2.0) • Author:</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Dave Haygarth Caption: The bicycle thief Source: https://www.flickr.com/photos/minnellium/2865435779 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://paulojuarezpereira.com/2014/07/28/zuruck-zum-paradies-eine-gegenkultur-gegen-gehirn-revolution/?msg=fail&shared=email"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&sid=1735247698&n=3722&svr=322&session-id=1f85161052e6bad4bc0482e7ee2ee43e', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">License: Attribution 2.0 Generic (CC BY 2.0) • Author:</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Glory Cycles Caption: Look 795 Blade RS Seat Post Source: https://www.flickr.com/photos/glorycycles/33237568718 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 2 in source list: https://paulojuarezpereira.com/2014/07/28/zuruck-zum-paradies-eine-gegenkultur-gegen-gehirn-revolution/?msg=fail&shared=email"><a href="javascript:void(0);" onClick="window.open('newreport_context.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&sid=1735247698&n=3722&svr=322&session-id=1f85161052e6bad4bc0482e7ee2ee43e', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:green" class="green">License: Attribution 2.0 Generic (CC BY 2.0) • Author:</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Skitterphoto Caption: Using phone smartphone internet hand screen Source: https://pixabay.com/photos-using-phone-smartphone-internet-3733354 License: Pixabay License 6.2 Activity Diagram Legend The diagram models the dynamic or behavioral aspects of the system. (Paradigm 2019) (c) (d) Initial Final (a) Activity (b) Control Flow node node 34 Activity represents a set of processes or actions. The entry and exit points of the logic is shown by the black circular nodes. (a) Fork node (b) Join node Forks and joins are used to split and bring-back concurrent activities. (a) Decision node (b) Merge node Decision and merge nodes are used to split and bring-back branches or con- ditionals in logic. The conditionals also called the guards are placed over the control flow lines. (a) Swim Lane Swim lane outlines the area of responsibility for the actors involved in initi- ating and handling the activities. 35 6.3 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to Monash University on 2014-09-16"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:452671367&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">Word Count File:</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> biju_doc <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to Monash University on 2014-09-16"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:452671367&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">.tex Encoding: ascii Words in text:</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> 1933 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to Monash University on 2014-09-16"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:452671367&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">Words in headers:</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> 118 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to Monash University on 2014-09-16"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:452671367&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">Words outside text (captions, etc.):</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> 203 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to Monash University on 2014-09-16"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:452671367&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">Number of headers:</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> 54 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to Monash University on 2014-09-16"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:452671367&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">Number of floats/tables/figures:</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> 37 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to Monash University on 2014-09-16"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:452671367&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">Number of math inlines: 0 Number of math displayed: 0 Subcounts: text+headers+captions (#headers/#floats/#inlines/#displayed) 0+</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> 2 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to Monash University on 2014-09-16"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:452671367&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">+0 (1/0/0/0) _top_</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> 0 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 1 in source list: Submitted to Monash University on 2014-09-16"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:1:452671367&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:red" class="red">+1+0 (1/0/0/0) Chapter: Introduction}</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> \input{chapters/01.introduction 110+2+0 (1/0/0/0) Section: Project Motivation 30+2+0 (1/0/0/0) Section: Problem Statement 31+1+0 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to University of Leeds on 2013-08-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:2:25576191&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">(1/0/0/</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> 0) <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to University of Leeds on 2013-08-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:2:25576191&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">Section:</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Aim <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to University of Leeds on 2013-08-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:2:25576191&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">0+</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> 1 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to University of Leeds on 2013-08-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:2:25576191&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">+0 (1/0/0/0) Section:</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Objectives 72 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to University of Leeds on 2013-08-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:2:25576191&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">+1+0 (1/0/0/0) Subsection:</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Technical 47 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to University of Leeds on 2013-08-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:2:25576191&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">+1+</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> 0 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to University of Leeds on 2013-08-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:2:25576191&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">(1/</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> 0 <img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" height="1" width="1" alt="Begin Match to source 3 in source list: Submitted to University of Leeds on 2013-08-14"><a href="javascript:void(0);" onClick="window.open('/paperInfo.asp?r=32.1653350551539&svr=334&session-id=1f85161052e6bad4bc0482e7ee2ee43e&lang=en_us&oid=oid:2:25576191&perc=1', 'context', 'location=no,menubar=no,resizable=yes,scrollbars=yes,titlebar=no,toolbar=no,status=no')" style="color:blue" class="blue">/0/0) Subsection:</a><img src="/r/build/images/new_dynamic/df3e567d6f16d040326c7a0ea29a4f41cb_spacer.gif" alt="End Match"> Academic 35+1+0 (1/0/0/0) Subsection: Personal 0+1+0 (1/0/0/0) Chapter: Justification} \input{chapters/02.justification 263+2+15 (1/1/0/0) Section: Rich Picture}\label{rich_picture 65+2+19 (1/5/0/0) Section: Components required 0+2+0 (1/0/0/0) Chapter: The Build} \input{chapters/03.build 122+2+12 (1/1/0/0) Section: Working Mechanism 20+2+6 (1/1/0/0) Section: Block Diagram 0+3+12 (1/2/0/0) Section: Software Tools Required 0+1+6 (1/1/0/0) Section: Libraries} \label{lib 131+4+0 (1/0/0/0) Section: Procedure to get started 0+2+5 (1/1/0/0) Section: Circuit Layout 0+1+5 (1/1/0/0) Section: Schematics 0+2+4 (1/1/0/0) Section: PCB Diagram 0+2+7 (1/1/0/0) Section: Pin Configuration} \label{pin 0+2+0 (1/0/0/0) Section: The Sketch}\label{sketch 15+3+7 (1/1/0/0) Subsection: Variable \& Instance declaration 21+8+8 (4/4/0/0) Subsection: Setup Function 251+26+52 (7/9/0/0) Subsection: Loop function 0+2+12 (1/3/0/0) Section: Final Prototype 0+2+16 (1/1/0/0) Subsection: Tracking Result 9+2+0 (1/0/0/0) Subsection: Video demonstration 0+1+0 (1/0/0/0) Chapter: Troubleshooting} \input{chapters/04.troubleshooting 62+1+0 (1/0/0/0) Section: Troubleshooting}\label{shoot 43+2+0 (1/0/0/0) Subsection: Accelerometer Issues 59+3+0 (1/0/0/0) Subsection: GPS Module Issues 94+3+0 (1/0/0/0) Subsection: GSM Module Issues 28+3+0 (1/0/0/0) Subsection: Arduino UNO Issues 0+2+0 (1/0/0/0) Chapter: Other Applications} \input{chapters/05.other_applications 105+2+0 (1/0/0/0) Section: Other Application 36 0+2+0 (1/0/0/0) Section: Future Work 25+3+0 (1/0/0/0) Subsection: Areas of Improvement 39+3+0 (1/0/0/0) Subsection: Areas of Extension 73+2+0 (1/0/0/0) Section: Lessons Learnt 0+1+0 (1/0/0/0) Chapter: Appendix} \input{chapters/05.appendix 92+2+0 (1/0/0/0) Section: Image Credit}\label{imgcr 91+3+17 (1/4/0/0) Section: Activity Diagram Legend}\label{actlgn 0+2+0 (1/0/0/0) Section: Word Count 37 Bibliography Ada, Lady (2019). Arduino Test — Adafruit FONA — Adafruit Learning Sys- tem. url: https : / / learn . adafruit . com / adafruit - fona - mini - gsm - gprs-cellular-phone-module/arduino-test (visited on 05/23/2019). Arduino.cc (2019). SoftwareSerial Library. url: https : / / www . arduino . cc / en/Reference/SoftwareSerial (visited on 05/23/2019). Blum, Jeremy (2018). Exploring Arduino: Tools and Techniques for Engineer- ing Wizardry. OCLC: 1008900456. Canada: Wiley & Sons Canada, Limited, John. isbn: 978-1-119-40537-5. DePriest, Dale (2019). NMEA data. url: https://www.gpsinformation.org/ dale/nmea.htm#nmea (visited on 05/23/2019). Hart, Mikal (2019). TinyGPS++ — Arduiniana. url: http : / / arduiniana . org/libraries/tinygpsplus/ (visited on 05/23/2019). Javed, Adeel (2016). Building Arduino Projects for the Internet of Things 2016. OCLC: 951006293. Berkley: APress. isbn: 978-1-4842-1939-3. NMEA.org (2019). Marine Electronics — Boating Electronics — About National Marine Electronics Association. Organizational Profile. url: https://www. nmea . org / content / about _ the _ nmea / about _ the _ nmea . asp (visited on 05/14/2019). Olsson, Tony (2012). Arduino wearables. OCLC: 872670661. Berkley, California: Apress. isbn: 978-1-4302-4359-5. Paradigm, Visual (2019). What is Activity Diagram? url: https : / / www . visual- paradigm.com/guide/uml- unified- modeling- language/what- is-activity-diagram/ (visited on 05/23/2019). Schwartz, Marco (2016). Internet of Things with Arduino Cookbook. 1st ed. OCLC: 1020708470. Birmingham, UK. isbn: 978-1-78588-331-6. 38 </p>
+</div>
+</body>
+</html>
